@@ -38,7 +38,7 @@ Frontend
 <img src="public/image-4.png">
 
 # Project Structure
-![alt text](<Screenshot 2025-03-09 235132.png>)
+<img src="public/Screenshot 2025-03-09 235132.png">
 
 # Future Enhancements.
 ## 🔹 More Algorithm Support
