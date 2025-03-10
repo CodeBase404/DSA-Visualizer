@@ -249,13 +249,13 @@ function Home() {
           initial={{ opacity: 0, y: 100 }} 
           whileInView={{ opacity: 1, y: 0}} 
           viewport={{once:false,amount:0.3}}
-          transition={{ duration: 0.5,}}  
-          onMouseMove={handleMouseMove} className='box5 relative md:shadow-[0px_0px_20px_inset] shadow-pink-700 h-full rounded-2xl overflow-hidden' style={{ '--x': position.x, '--y': position.y }}>
+          transition={{ duration: 0.8,}}  
+          onMouseMove={handleMouseMove} className='box5 relative w-[98%] md:shadow-[0px_0px_20px_inset] shadow-pink-700 h-full rounded-2xl overflow-hidden' style={{ '--x': position.x, '--y': position.y }}>
             <motion.div 
            initial={{ opacity: 0, y: 100 }} 
            whileInView={{ opacity: 1, y: 0}} 
            viewport={{once:false,amount:0.3}}
-           transition={{ duration: 0.5,}}  
+           transition={{ duration: 0.8,}}  
             className='relative z-10 p-6 h-full flex flex-col'>
               <div className='flex items-center justify-between mb-4'>
                 <div className='flex items-center space-x-3'>
@@ -707,19 +707,19 @@ function Home() {
                   <div className='space-y-2'>
                     <h1 className='text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>Resources</h1>
                     <ul className='p-2 space-y-2 font-semibold text-gray-500'>
-                      <li>Documentation</li>
-                      <li>Tutorials</li>
-                      <li>Examples</li>
-                      <li>Blogs</li>
+                      <li className='cursor-pointer'>Documentation</li>
+                      <li className='cursor-pointer'>Tutorials</li>
+                      <li className='cursor-pointer'>Examples</li>
+                      <li className='cursor-pointer'>Blogs</li>
                     </ul>
                   </div>
                   <div className='space-y-2'>
                     <h1 className='text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>Community</h1>
                     <ul className='p-2 space-y-2 font-semibold shadow-amber-200 text-gray-500'>
-                      <li>Github</li>
-                      <li>Discord</li>
-                      <li>Forums</li>
-                      <li>Newsletter</li>
+                      <li className='cursor-pointer'>Github</li>
+                      <li className='cursor-pointer'>Discord</li>
+                      <li className='cursor-pointer'>Forums</li>
+                      <li className='cursor-pointer'>Newsletter</li>
                     </ul>
                   </div>
                 </div>
@@ -727,10 +727,10 @@ function Home() {
                 <div className='flex flex-col text-white space-y-5'>
                   <h1 className='text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>Connect</h1>
                   <div className='flex  space-x-5'>
-                    <Github className='bg-gray-800  w-10 h-10 p-2 rounded-md' />
-                    <Linkedin className='bg-gray-800  w-10 h-10 p-2 rounded-md' />
-                    <Mail className='bg-gray-800  w-10 h-10 p-2 rounded-md' />
-                    <Twitter className='bg-gray-800  w-10 h-10 p-2 rounded-md' />
+                   <a href="https://github.com/CodeBase404"> <Github className='bg-gray-800  w-10 h-10 p-2 rounded-md' /> </a>
+                    <a href="https://www.linkedin.com/in/sonu-parvej-6a41a8222/"> <Linkedin className='bg-gray-800  w-10 h-10 p-2 rounded-md' /> </a>
+                    <Mail className='bg-gray-800 cursor-pointer w-10 h-10 p-2 rounded-md' />
+                    <Twitter className='bg-gray-800 cursor-pointer w-10 h-10 p-2 rounded-md' />
                   </div>
                   <p className='text-[0.9rem] text-left md:text-[0.9rem] text-gray-300 md:text-left'>
                     Empowering developers with interactive data structure visualizations and comprehensive learning resources.
@@ -752,7 +752,7 @@ function Home() {
                         <input type="text" className='h-[2.5rem] outline-none shadow shadow-pink-800 text-gray-500 w-full rounded-md p-4' placeholder='Your Name' />
                         <input type="email" className='h-[2.5rem] outline-none shadow  shadow-pink-800  text-gray-500 w-full rounded-md p-4' placeholder='Your Email' />
                         <textarea name="" id="" cols="20" rows="5" placeholder='Your Feedback' className='w-full text-gray-500 p-4 outline-none shadow shadow-pink-800 rounded-md'></textarea>
-                        <input type="submit" value='Submit' className=' p-2 rounded-2xl text-white text-xl w-[50%] md:w-[30%] shadow-amber-100 shadow' />
+                        <input type="submit" value='Submit' className='cursor-pointer p-2 rounded-2xl text-white text-xl w-[50%] md:w-[30%] shadow-amber-100 shadow' />
                       </div>
                     </form>
                   </div>
