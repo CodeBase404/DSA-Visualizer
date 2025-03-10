@@ -11,6 +11,7 @@ import RealWorldApplication from '../assets/RealWorldApplication.jpeg'
 import { Code, BarChart4, Network, Braces, GitCompare, Cpu, Layers, Brain, Zap, Clock, Sparkles, Rocket, Code2, BookOpen, Lightbulb, ArrowRight, Github, Linkedin, Mail, Twitter, Repeat } from 'lucide-react';
 import { motion, useMotionTemplate, useMotionValue, animate,useInView } from 'motion/react'
 import { easeInOut, stagger } from 'motion'
+import { NavLink } from 'react-router'
 
 
 function Home() {
@@ -68,7 +69,7 @@ function Home() {
 
  
   return (
-    <div className='flex flex-col gap-30 md:gap-80 overflow-hidden pb-10 md:pb-5 '>
+    <div className='flex flex-col scroll-smooth gap-30 md:gap-80 overflow-hidden pb-10 md:pb-5 '>
       <motion.div style={{ backgroundImage, boxShadow }} className='flex flex-col justify-between w-[100%] m-auto md:flex-row  md:h-[88vh]' >
 
         <div className='h-[100%]  w-[100%] rounded-2xl m-auto overflow-hidden md:w-[90%] md:h-[93%]'>
@@ -99,7 +100,7 @@ function Home() {
 
                   className='px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full text-white font-medium flex items-center space-x-2 hover:opacity-90 transition-all'>
                   <Rocket size={20} />
-                  <span>Get Started</span>
+                   <NavLink to="/Visualizer">Get Started</NavLink>
                 </motion.button>
                 <motion.button
                   variants={buttonVariants}
@@ -110,7 +111,7 @@ function Home() {
 
                   className='px-6  py-3 bg border border-purple-500 bg-transparent rounded-full text-white font-medium flex items-center space-x-2 hover:bg-purple-900/20 transition-all'>
                   <Sparkles size={20} className='text-yellow-400' />
-                  <span>Explore</span>
+                  <a href='#content' >Explore</a>
                 </motion.button>
               </div>
             </div>
@@ -143,7 +144,7 @@ function Home() {
 
       </motion.div>
 
-      <div className='flex flex-col justify-between gap-30 md:gap-5 w-[100%] md:w-[90%] m-auto rounded-2xl  md:flex-row md:h-[85vh]'>
+      <div id="content" className='flex flex-col justify-between gap-30 md:gap-5 w-[100%] md:w-[90%] m-auto rounded-2xl  md:flex-row md:h-[85vh]'>
         <Tilt
           tiltMaxAngleX={-5}
           tiltMaxAngleY={5}
