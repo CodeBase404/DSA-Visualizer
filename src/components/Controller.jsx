@@ -134,7 +134,7 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
         </button>
       </div>
       {winner && <motion.button whileTap={{scale:0.5}}  dragConstraints={{top:0, bottom:500, left:-320, right:0}} drag onClick={() => setShowLeaderboard(!showLeaderboard)} className="shadow-2xl shadow-yellow-200 bg-white md:hidden rounded-full pr-6 fixed top-16.5 z-15 right-7 h-7 w-7">
-        {showLeaderboard?<LayoutDashboard className='h-5 w-6 p-0.7 ' />:<X className='h-6 w-6 pl-0.5 '/>}
+        {showLeaderboard?<X className='h-6 w-6.5 pl-0.5 '/>:<LayoutDashboard className='h-5 w-7 p-0.7 ' />}
       </motion.button>}
       {
         winner && (
