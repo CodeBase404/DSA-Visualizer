@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import { useState } from "react"
 
-function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmType }) {
+function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmType}) {
     const [sortDropdown, setSortDropdown] = useState(false);
     const [searchDropdown, setSearchDropdown] = useState(false);
 
