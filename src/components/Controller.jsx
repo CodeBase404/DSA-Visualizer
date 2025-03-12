@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying, currentStep, setCurrentStep, steps, algorithm, handleInput, raceMode, raceCurrentSteps, setRaceCurrentSteps, raceSteps,winner,searchTarget,setSearchTarget,algorithmType }) {
 
-  const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [showLeaderboard, setShowLeaderboard] = useState(false); 
 
   const handleNewInput = () => {
     const trimmedInput = input.trim();
