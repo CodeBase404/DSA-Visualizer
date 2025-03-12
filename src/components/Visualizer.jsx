@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar";
 import { PanelLeft } from "lucide-react";
 import RenderBars from './RenderBars';
 import handleAlgorithm from "./handleAlgorithm";
-
+import Pseudocode from "./Pseudocode";
 
 function Visualizer({ algorithm, setAlgorithm}) {
     const [showSidebar, setShowSidebar] = useState(false)
@@ -107,6 +107,9 @@ function Visualizer({ algorithm, setAlgorithm}) {
                         setSearchTarget={setSearchTarget}
                         algorithmType={algorithmType}
                     />
+                    {!raceMode && algorithm.length > 0 && (
+                        <Pseudocode algorithm={algorithm[0]} />
+                    )}
                 </div>
                 <div className="w-full shadow-[0px_0px_10px_inset] md:shadow-[0px_0px_20px_inset] shadow-pink-700  md:h-full border-t-2 border-b-2  border-pink-900 rounded-2xl">
                     <div className="flex p-2 items-center justify-between">
