@@ -37,7 +37,7 @@ const handleAlgorithm = {
     },
 
 
-    initializeRaceMode: (arr, algorithm, setRaceSteps, setRaceCurrentSteps, setIsPlaying,searchTarget===null) => {
+    initializeRaceMode: (arr, algorithm, setRaceSteps, setRaceCurrentSteps, setIsPlaying,searchTarget=null) => {
         if (!algorithm || algorithm.length === 0) return;
         setIsPlaying(false);
         const raceSteps = {};
@@ -62,7 +62,7 @@ const handleAlgorithm = {
     },
 
 
-    handleInput: (input, setArr, algorithm, setSteps, setCurrentStep, setIsPlaying,searchTarget===null) => {
+    handleInput: (input, setArr, algorithm, setSteps, setCurrentStep, setIsPlaying,searchTarget=null) => {
         const parsedArray = input.split(" ").map(Number).filter((n) => !isNaN(n));
         if(algorithm.includes("Linear Search") || algorithm.includes("Binary Search")){
             const isSorted = parsedArray.every((val,i,array)=>i===0 || array[i-1]<=val);
