@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import { useState } from "react"
 
-function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode }) {
+function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmType }) {
     const [sortDropdown, setSortDropdown] = useState(false);
     const [searchDropdown, setSearchDropdown] = useState(false);
 
@@ -19,7 +19,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode }) {
     ];
 
     const supportedAlgorithms = [
-        "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort",
+        "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort","Linear Search","Binary Search"
     ];
 
     const handleAlgorithmSelection = (algokey) => {
@@ -46,7 +46,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode }) {
         <div className="flex flex-col gap-2 text-[8px] font-bold sm:text-[14px] text-center md:text-[14px]">
             <h1 className='text-sm md:text-3xl md:py-4 md:px-2 lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>Select Algorithms</h1>
 
-            <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer" onClick={() => setSortDropdown(!sortDropdown)}>
+            <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer" onClick={() =>{ setSortDropdown(!sortDropdown); setSearchDropdown(false); setAlgorithmType("sorting"); setAlgorithm([]);}}>
                 Sorting Algorithms
             </button>
 
@@ -72,7 +72,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode }) {
 
 
 
-            <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer" onClick={() => setSearchDropdown(!searchDropdown)}>
+            <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer" onClick={() =>{ setSearchDropdown(!searchDropdown); setSortDropdown(false); setAlgorithmType("searching"); setAlgorithm([]); setRaceMode(false);}}>
                 Searching Algorithms
             </button>
 
