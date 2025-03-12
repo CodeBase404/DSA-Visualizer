@@ -78,7 +78,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
     };
 
     return (
-        <div className="flex flex-col gap-2 text-[8px] font-bold sm:text-[14px] text-center md:text-[14px]">
+        <div className="flex flex-col gap-2 text-[8px] mb-20 font-bold sm:text-[14px] text-center md:text-[14px]">
             <h1 className='text-sm md:text-3xl md:py-4 md:px-2 lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>Select Algorithms</h1>
 
             <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer" onClick={() =>{ setSortDropdown(!sortDropdown); setSearchDropdown(false); setAlgorithmType("sorting"); setAlgorithm([]);}}>
