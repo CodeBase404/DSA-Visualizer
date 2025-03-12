@@ -7,7 +7,7 @@ import RenderBars from './RenderBars';
 import handleAlgorithm from "./handleAlgorithm";
 
 
-function Visualizer({ algorithm, setAlgorithm }) {
+function Visualizer({ algorithm, setAlgorithm}) {
     const [showSidebar, setShowSidebar] = useState(false)
     const [arr, setArr] = useState([76, 54, 32, 23, 34, 45, 56, 67, 78, 89, 35, 57, 79, 97, 75, 53, 31, 47, 70, 52]);
     const [input, setInput] = useState("");
