@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 
-function RenderBars({ arr, steps, currentStep,raceMode,algorithm,algorithmType, searchTarget }) {
+function RenderBars({ arr, steps, currentStep,raceMode,algorithm,algorithmType, searchTarget}) {
   const current = steps[currentStep] || {
     array: arr,
     compare: [],
