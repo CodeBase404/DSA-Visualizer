@@ -24,7 +24,7 @@ const handleAlgorithm = {
         setIsPlaying(false);
 
         let generator = algorithmGenerator[algorithm];
-        if (!generator) return;
+        if (!generator) return; 
 
         const allSteps = [];
         const gen = searchTarget!==null? generator([...parsedArray],searchTarget) : generator([...parsedArray]);
