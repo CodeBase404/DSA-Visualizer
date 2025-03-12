@@ -2,7 +2,7 @@ import { Play, Pause, UndoDot, RedoDot, RotateCcw, LayoutDashboard,X } from 'luc
 import { motion } from 'motion/react';
 import { useState } from 'react';
 
-function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying, currentStep, setCurrentStep, steps, algorithm, handleInput, raceMode, raceCurrentSteps, setRaceCurrentSteps, raceSteps,winner }) {
+function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying, currentStep, setCurrentStep, steps, algorithm, handleInput, raceMode, raceCurrentSteps, setRaceCurrentSteps, raceSteps,winner,searchTarget,setSearchTarget,algorithmType }) {
 
   const [showLeaderboard, setShowLeaderboard] = useState(false);
 
@@ -30,6 +30,23 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
           className='w-[80%] rounded-md p-2 outline-none text-pink-700 font-semibold shadow shadow-pink-900'
           onChange={(e) => setInput(e.target.value)}
         />
+          {
+               algorithmType === "searching" && (
+                        <div className='mt-4'>
+                            <label htmlFor="searchTarget" className='font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>
+                                Search Target:
+                            </label>
+                            <input
+                                type="number"
+                                id='searchTarget'
+                                value={searchTarget || ''}
+                                placeholder='Enter the number to search'
+                                className='w-[80%] rounded-md p-2 outline-none text-pink-700 font-semibold shadow shadow-pink-900'
+                                onChange={(e) => setSearchTarget(Number(e.target.value))}
+                            />
+                        </div>
+                    )
+                }
         <button className='p-2 mt-2 border border-blue-500 bg-blue-500 text-white active:bg-blue-600 rounded-md cursor-pointer' onClick={handleNewInput}>Apply</button>
       </div>
 
@@ -61,6 +78,10 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
             alert("Please apply an input array first!");
             return;
           }
+      if(algorithmType === "searching" && searchTarget === null){
+          alert("please enter a search target!🎯")
+            return
+            }
           setIsPlaying(!isPlaying);
         }}
           disabled={isPlaying && (!raceMode ? steps.length === 0 : Object.keys(raceCurrentSteps).length === 0)}
