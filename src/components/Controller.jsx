@@ -158,19 +158,19 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
         {showLeaderboard?<X className='h-10 w-10 ml-2'/>:<LayoutDashboard className='h-10 w-10 ml-2' />}
       </motion.button>}
       {
-        winner && (
+        winner && raceMode && (
           <motion.div
             initial={false}
             animate={{ y: showLeaderboard ? 450 : 0 }}
             transition={{ duration: 0.7, ease: 'anticipate' }}
-            className='mt-20 fixed md:relative bg-gray-800 w-[90%] top-[-60%] md:top-0 md:w-[100%] z-5 rounded-lg lg:mt-5'>
+            className='mt-20 fixed md:relative bg-[#3c0318f1] backdrop-blur-2xl md:bg-transparent w-[90%] top-[-60%] md:top-0 md:w-[100%] z-5 rounded-lg lg:mt-5'>
               {
                 <div className='shadow-gray-400 shadow-md p-2 rounded-lg text-white w-[100%]'>
                     <h2 className='text-sm md:text-xl font-bold mb-2'>🏆Leaderboard</h2>
                     {
                       winner && (
                         <div className='shadow-md shadow-purple-300 text-white md:text-[12px] lg:text-[95%] p-2 rounded-lg text-center mb-2 font-bold'>
-                          Winner : <strong className='text-green-500 font-extrabold'>{winner}</strong>
+                          Winner : <strong className='text-green-500 font-extrabold'>🥇{winner}</strong>
                         </div>
                       )
                     }
