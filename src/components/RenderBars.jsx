@@ -16,7 +16,7 @@ function RenderBars({ arr, steps, currentStep,raceMode,algorithm,algorithmType, 
     target:searchTarget
   }:{})
   }
-  const [viewMode, setViewMode] = useState("bars");
+  const [viewMode, setViewMode] = useState("box");
 
   const barWidth = 42;
   const barSpacing = 50;
