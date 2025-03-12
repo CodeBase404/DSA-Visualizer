@@ -154,7 +154,7 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
           <RotateCcw className='size-10 text-pink-400 active:text-pink-500 cursor-pointer' />
         </button>
       </div>
-      {winner && <motion.button whileTap={{scale:0.5}}  dragConstraints={{top:-190, bottom:250, left:-320, right:0}} drag onClick={() => setShowLeaderboard(!showLeaderboard)} className="shadow-2xl shadow-yellow-200 bg-white md:hidden rounded-full pr-6 fixed top-60 z-15 right-6 h-15 w-15">
+      {winner && raceMode && <motion.button whileTap={{scale:0.5}}  dragConstraints={{top:-190, bottom:250, left:-320, right:0}} drag onClick={() => setShowLeaderboard(!showLeaderboard)} className="shadow-2xl shadow-yellow-200 bg-white md:hidden rounded-full pr-6 fixed top-60 z-15 right-6 h-15 w-15">
         {showLeaderboard?<X className='h-10 w-10 ml-2'/>:<LayoutDashboard className='h-10 w-10 ml-2' />}
       </motion.button>}
       {
@@ -166,7 +166,7 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
             className='mt-20 fixed md:relative bg-[#3c0318f1] backdrop-blur-2xl md:bg-transparent w-[90%] top-[-60%] md:top-0 md:w-[100%] z-5 rounded-lg lg:mt-5'>
               {
                 <div className='shadow-gray-400 shadow-md p-2 rounded-lg text-white w-[100%]'>
-                    <h2 className='text-sm md:text-xl font-bold mb-2'>🏆Leaderboard</h2>
+                    <h2 className='text-2xl md:text-xl font-bold mb-2'>🏆Leaderboard</h2>
                     {
                       winner && (
                         <div className='shadow-md shadow-purple-300 text-white md:text-[12px] lg:text-[95%] p-2 rounded-lg text-center mb-2 font-bold'>
