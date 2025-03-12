@@ -154,7 +154,7 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
           <RotateCcw className='size-10 text-pink-400 active:text-pink-500 cursor-pointer' />
         </button>
       </div>
-      {winner && <motion.button whileTap={{scale:0.5}}  dragConstraints={{top:0, bottom:500, left:-320, right:0}} drag onClick={() => setShowLeaderboard(!showLeaderboard)} className="shadow-2xl shadow-yellow-200 bg-white md:hidden rounded-full pr-6 fixed top-60 z-15 right-6 h-15 w-15">
+      {winner && <motion.button whileTap={{scale:0.5}}  dragConstraints={{top:-190, bottom:250, left:-320, right:0}} drag onClick={() => setShowLeaderboard(!showLeaderboard)} className="shadow-2xl shadow-yellow-200 bg-white md:hidden rounded-full pr-6 fixed top-60 z-15 right-6 h-15 w-15">
         {showLeaderboard?<X className='h-10 w-10 ml-2'/>:<LayoutDashboard className='h-10 w-10 ml-2' />}
       </motion.button>}
       {
