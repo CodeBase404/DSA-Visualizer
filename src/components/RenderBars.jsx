@@ -54,8 +54,8 @@ function RenderBars({ arr, steps, currentStep,raceMode,algorithm,algorithmType, 
                 initial={{opacity:0, scale:0.5}}
                 animate={{opacity:1,scale:1}}
                 transition={{duration:0.5,ease:"easeOut"}}
-                className="mt-2 shadow shadow-gray-500 p-1 text-sm lg:text-xl font-semibold text-white">
-                {isFound?"✅ Element Found 🎉😊":"❌Element Not Found🥲"}
+                className="mt-3 text-sm lg:text-xl font-semibold">
+                {isFound? <div className="rounded-md p-1 shadow-sm shadow-green-500 text-green-500"> <strong className="font-extrabold">{searchTarget}</strong> Found 🎉😊</div>: <div className="rounded-md p-1 shadow-sm shadow-rose-500 text-rose-500"> <strong className="font-extrabold text-rose-700">{searchTarget}</strong> not found 🥲</div>}
                 </motion.div>
             )}
 
