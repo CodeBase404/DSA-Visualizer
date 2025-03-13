@@ -28,11 +28,12 @@ function Visualizer({ algorithm, setAlgorithm}) {
                if(algorithm.includes("Binary Search")){
                 const isSorted = arr.every((val,i,array)=>i===0 || array[i-1]<=val);
                  if(!isSorted){
-                const shouldSort = window.confirm(`The array must be sorted for Binary Search. Do you want to sort it now?😊`);
+                const shouldSort = window.confirm(`The array must be sorted for Binary Search. Do you want to sort it now?`);
                 if(shouldSort){
                    const sortedArr = [...arr].sort((a,b)=>a-b);
+                    setArr(sortedArr);
                 } else{
-                    alert("Please use a sorted array for Binary Search.🤗");
+                    alert("Please use a sorted array for Binary Search.");
                     return;
                 }
             }
