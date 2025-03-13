@@ -24,6 +24,21 @@ function Visualizer({ algorithm, setAlgorithm}) {
 
     useEffect(() => {
         if (algorithm.length > 0) {
+
+               if(algorithm.includes("Binary Search")){
+                const isSorted = arr.every((val,i,array)=>i===0 || array[i-1]<=val);
+                 if(!isSorted){
+                const shouldSort = window.confirm(`The array must be sorted for Binary Search. Do you want to sort it now?😊`);
+                if(shouldSort){
+                   const sortedArr = [...arr].sort((a,b)=>a-b);
+                } else{
+                    alert("Please use a sorted array for Binary Search.🤗");
+                    return;
+                }
+            }
+
+        }
+            
             if (raceMode) {
                 handleAlgorithm.initializeRaceMode(arr, algorithm, setRaceSteps, setRaceCurrentSteps, setIsPlaying,searchTarget);
             } else {
