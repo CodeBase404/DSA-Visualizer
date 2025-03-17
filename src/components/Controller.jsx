@@ -109,7 +109,7 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
                 }
 
         {algorithmType === "stack" && (
-                    <div className="mt-2 h-32 flex flex-col gap-5">
+                    <div className="md:mt-2 h-22 flex flex-col gap-2">
                         <input
                             type="number"
                             value={stackInput}
@@ -124,7 +124,7 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
                     </div>
                 )}
                 {(algorithmType === "linkedlist" || algorithmType === "array") && (
-                    <div className="mt-4 h-[25vh] flex flex-col gap-5">
+                    <div className="md:mt-2 h-[25vh] flex flex-col gap-2">
                         <input
                             type="number"
                             value={listInput}
