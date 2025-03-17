@@ -2,9 +2,12 @@ import { Play, Pause, UndoDot, RedoDot, RotateCcw, LayoutDashboard,X } from 'luc
 import { motion } from 'motion/react';
 import { useState } from 'react';
 
-function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying, currentStep, setCurrentStep, steps, algorithm, handleInput, raceMode, raceCurrentSteps, setRaceCurrentSteps, raceSteps,winner,searchTarget,setSearchTarget,algorithmType }) {
+function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying, currentStep, setCurrentStep, steps, algorithm, handleInput, raceMode, raceCurrentSteps, setRaceCurrentSteps, raceSteps,winner,searchTarget,setSearchTarget,algorithmType,stack, setStack,list, setList }) {
 
   const [showLeaderboard, setShowLeaderboard] = useState(false); 
+  const [stackInput, setStackInput] = useState(""); 
+    const [listInput, setListInput] = useState(""); 
+    const [listIndex, setListIndex] = useState(""); 
 
   const handleNewInput = () => {
     const trimmedInput = input.trim();
@@ -18,19 +21,76 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
     handleInput();
   };
 
+  const handleStackPush = () => {
+        if (!stackInput.trim()) {
+            alert("Please enter a value to push!");
+            return;
+        }
+        setStack([ ...stack,Number(stackInput),]);
+        setStackInput("");
+    };
+
+    const handleStackPop = () => {
+        if (stack.length === 0) {
+            alert("Stack is empty!");
+            return;
+        }
+        setStack((prevStack) => {
+          if (prevStack.length === 0) return prevStack;
+      
+          const newStack = [...prevStack]; 
+          newStack.pop(); 
+          return newStack;
+        });
+    };
+
+    const handleListInsert = () => {
+        if (!listInput.trim()) {
+            alert("Please enter a value to insert!");
+            return;
+        }
+        const index = listIndex.trim() === "" ? list.length : Number(listIndex);
+        if (index < 0 || index > list.length) {
+            alert("Invalid index!");
+            return;
+        }
+        const newList = [...list];
+        newList.splice(index, 0, Number(listInput));
+        setList(newList);
+        setListInput("");
+        setListIndex("");
+    };
+
+    const handleListDelete = () => {
+        if (list.length === 0) {
+            alert("Linked List is empty!");
+            return;
+        }
+        const index = listIndex.trim() === "" ? 0 : Number(listIndex);
+        if (index < 0 || index >= list.length) {
+            alert("Invalid index!");
+            return;
+        }
+        const newList = [...list];
+        newList.splice(index, 1);
+        setList(newList);
+        setListIndex("");
+    };
+
   return (
     <div className='flex flex-col gap-4 p-4'>
       <div className='flex flex-col'>
         <label htmlFor="input" className='font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 '>Enter the Input:</label>
-        <input
+           {(algorithmType === "sorting" || algorithmType === "searching") && (  <input
           type="text"
           id='input'
           value={input}
           placeholder='Eg. 1 2 3'
           className='w-[80%] rounded-md p-2 outline-none text-pink-700 font-semibold shadow shadow-pink-900'
           onChange={(e) => setInput(e.target.value)}
-        />
-          {
+        />  
+)}
+             {
                algorithmType === "searching" && (
                         <div className='mt-4'>
                             <label htmlFor="searchTarget" className='font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>
@@ -47,8 +107,49 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
                         </div>
                     )
                 }
+
+        {algorithmType === "stack" && (
+                    <div className="mt-2 h-32 flex flex-col gap-5">
+                        <input
+                            type="number"
+                            value={stackInput}
+                            placeholder="Value to push"
+                            className='w-[80%] rounded-md p-2 outline-none text-pink-700 font-semibold shadow shadow-pink-900'
+                            onChange={(e) => setStackInput(e.target.value)}
+                        />
+                        <div className="flex gap-3 mt-2">
+                            <button className='p-2 border border-green-500 bg-green-500 text-white active:bg-green-600 rounded-md cursor-pointer' onClick={handleStackPush}>Push</button>
+                            <button className='p-2 border border-red-500 bg-red-500 text-white active:bg-red-600 rounded-md cursor-pointer' onClick={handleStackPop}>Pop</button>
+                        </div>
+                    </div>
+                )}
+                {(algorithmType === "linkedlist" || algorithmType === "array") && (
+                    <div className="mt-4 h-[25vh] flex flex-col gap-5">
+                        <input
+                            type="number"
+                            value={listInput}
+                            placeholder="Value to insert"
+                            className='w-[80%] rounded-md p-2 outline-none text-pink-700 font-semibold shadow shadow-pink-900'
+                            onChange={(e) => setListInput(e.target.value)}
+                        />
+                        <input
+                            type="number"
+                            value={listIndex}
+                            placeholder="Index (optional)"
+                            className='w-[80%] rounded-md p-2 mt-2 outline-none text-pink-700 font-semibold shadow shadow-pink-900'
+                            onChange={(e) => setListIndex(e.target.value)}
+                        />
+                        <div className="flex gap-3 mt-2">
+                            <button className='p-2 border border-green-500 bg-green-500 text-white active:bg-green-600 rounded-md cursor-pointer' onClick={handleListInsert}>Insert</button>
+                            <button className='p-2 border border-red-500 bg-red-500 text-white active:bg-red-600 rounded-md cursor-pointer' onClick={handleListDelete}>Delete</button>
+                        </div>
+                    </div>
+                )}
+        </div>
+         {(algorithmType === "sorting" || algorithmType === "searching") && (
+                <>
         <button className='p-2 mt-2 border border-blue-500 bg-blue-500 text-white active:bg-blue-600 rounded-md cursor-pointer' onClick={handleNewInput}>Apply</button>
-      </div>
+   
 
       <div className='flex items-center'>
         <input
@@ -194,10 +295,11 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
                     </table>
                 </div>
               }
-
           </motion.div>
         )
       }
+  </>
+  )}
     </div>
   );
 }
