@@ -12,7 +12,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
     const [dataStructureDropdown, setDataStructureDropdown] = useState(false);
 
 
-    const sortingAlgoList = [
+    const sortingAlgoList = [ 
         { name: "Bubble Sort", key: "Bubble Sort" },
         { name: "Selection Sort", key: "Selection Sort" },
         { name: "Insertion Sort", key: "Insertion Sort" },
