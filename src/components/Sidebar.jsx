@@ -55,7 +55,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
     ];
 
     const supportedAlgorithms = [
-        "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort","Linear Search","Binary Search","Array","Stack","Linkedlist"];
+        "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort","Linear Search","Binary Search","Array","Stack","Linked List"];
 
     const handleAlgorithmSelection = (algokey) => {
         if (!supportedAlgorithms.includes(algokey)) {
@@ -85,7 +85,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
                 {raceMode ? "Disable Race Mode" : "Enable Race Mode"}
             </button>
             
-            <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer" onClick={() =>{ setSortDropdown(!sortDropdown); setSearchDropdown(false); setAlgorithmType("sorting"); setAlgorithm([]);}}>
+            <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer" onClick={() =>{ setSortDropdown(!sortDropdown); setSearchDropdown(false); setDataStructureDropdown(false); setAlgorithmType("sorting"); setAlgorithm([]);}}>
                 Sorting Algorithms
             </button>
 
@@ -111,7 +111,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
 
 
 
-            <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer" onClick={() =>{ setSearchDropdown(!searchDropdown); setSortDropdown(false); setAlgorithmType("searching"); setAlgorithm([]); setRaceMode(false);}}>
+            <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer" onClick={() =>{ setSearchDropdown(!searchDropdown); setSortDropdown(false); setDataStructureDropdown(false); setAlgorithmType("searching"); setAlgorithm([]); setRaceMode(false);}}>
                 Searching Algorithms
             </button>
 
@@ -140,13 +140,13 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
                 Data Structures
             </button>
             <motion.div initial={false} animate={{ height: dataStructureDropdown ? "auto" : "0px", opacity: dataStructureDropdown ? 1 : 0 }} transition={{ duration: 0.5 }} className="flex flex-col gap-5 rounded-md overflow-hidden">
-            <button className="p-1 rounded-md text-gray-700 hover:bg-gray-900 hover:text-white cursor-pointer transition" initial={{ opacity: 0, y: -10 }} animate={{ opacity: dataStructureDropdown ? 1 : 0, y: dataStructureDropdown ? 0 : -10 }} onClick={() => { setAlgorithmType("stack");  setAlgorithm([]); setRaceMode(false);handleAlgorithmSelection("Stack") }}>
+            <button className="p-1 rounded-md text-gray-700 hover:bg-gray-900 hover:text-white cursor-pointer transition" initial={{ opacity: 0, y: -10 }} animate={{ opacity: dataStructureDropdown ? 1 : 0, y: dataStructureDropdown ? 0 : -10 }} onClick={() => { setAlgorithmType("stack");  setAlgorithm([]); setRaceMode(false); handleAlgorithmSelection("Stack") }}>
                 Stack
             </button>
-            <button  className="p-1 rounded-md text-gray-700 hover:bg-gray-900 hover:text-white cursor-pointer transition" initial={{ opacity: 0, y: -10 }} animate={{ opacity: dataStructureDropdown ? 1 : 0, y: dataStructureDropdown ? 0 : -10 }} onClick={() => { setAlgorithmType("linkedlist"); setAlgorithm([]); setRaceMode(false); }}>
+            <button  className="p-1 rounded-md text-gray-700 hover:bg-gray-900 hover:text-white cursor-pointer transition" initial={{ opacity: 0, y: -10 }} animate={{ opacity: dataStructureDropdown ? 1 : 0, y: dataStructureDropdown ? 0 : -10 }} onClick={() => { setAlgorithmType("linkedlist"); setAlgorithm([]); setRaceMode(false); handleAlgorithmSelection("Linked List") }}>
                 Linked List
             </button>
-            <button className="p-1 rounded-md text-gray-700 hover:bg-gray-900 hover:text-white cursor-pointer transition" initial={{ opacity: 0, y: -10 }} animate={{ opacity: dataStructureDropdown ? 1 : 0, y: dataStructureDropdown ? 0 : -10 }} onClick={() => { setAlgorithmType("array"); setAlgorithm([]); setRaceMode(false); }}>
+            <button className="p-1 rounded-md text-gray-700 hover:bg-gray-900 hover:text-white cursor-pointer transition" initial={{ opacity: 0, y: -10 }} animate={{ opacity: dataStructureDropdown ? 1 : 0, y: dataStructureDropdown ? 0 : -10 }} onClick={() => { setAlgorithmType("array"); setAlgorithm([]); setRaceMode(false); handleAlgorithmSelection("Array")}}>
                 Array
             </button>
             </motion.div>
