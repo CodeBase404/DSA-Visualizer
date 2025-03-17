@@ -6,6 +6,9 @@ import { PanelLeft } from "lucide-react";
 import RenderBars from './RenderBars';
 import handleAlgorithm from "./handleAlgorithm";
 import Pseudocode from "./Pseudocode";
+import Stack from './DataStructures/Stack'
+import  Array from './DataStructures/Array'
+import  LinkedList from './DataStructures/LinkedList' 
 
 function Visualizer({ algorithm, setAlgorithm}) {
     const [showSidebar, setShowSidebar] = useState(false)
@@ -21,7 +24,9 @@ function Visualizer({ algorithm, setAlgorithm}) {
     const [winner,setWinner] = useState(null);
     const [searchTarget,setSearchTarget] = useState(null);
     const [algorithmType,setAlgorithmType] = useState("sorting");
-
+    const [stack, setStack] = useState([]); 
+    const [list, setList] = useState([]); 
+    
     useEffect(() => {
         if (algorithm.length > 0) {
 
@@ -112,7 +117,15 @@ function Visualizer({ algorithm, setAlgorithm}) {
                         setCurrentStep={setCurrentStep}
                         steps={steps}
                         algorithm={algorithm}
-                        handleInput={() => handleAlgorithm.handleInput(input, setArr, algorithm, setSteps, setCurrentStep, setIsPlaying,)}
+                        handleInput={() => {
+                            if (algorithmType === "sorting" || algorithmType === "searching") {
+                                handleAlgorithm.handleInput(input, setArr, algorithm, setSteps, setCurrentStep, setIsPlaying);
+                            } else if (algorithmType === "stack") {
+                                setStack(input.split(" ").map(Number).reverse());
+                            } else if (algorithmType === "linkedlist") {
+                                setList(input.split(" ").map(Number));
+                            }
+                        }}
                         raceMode={raceMode}
                         setRaceMode={setRaceMode}
                         raceCurrentSteps={raceCurrentSteps}
@@ -122,6 +135,11 @@ function Visualizer({ algorithm, setAlgorithm}) {
                         searchTarget={searchTarget}
                         setSearchTarget={setSearchTarget}
                         algorithmType={algorithmType}
+                        stack={stack}
+                        setStack={setStack}
+                        list={list}
+                        setList={setList}
+                    />
                     />
                     {!raceMode && algorithm.length > 0 && (
                         <Pseudocode algorithm={algorithm[0]} />
@@ -137,7 +155,11 @@ function Visualizer({ algorithm, setAlgorithm}) {
                         </h2>
                     </div>
                     <div>
-                        {raceMode ? (
+                        {algorithmType === "stack" && <Stack stack={stack} setStack={setStack} />}
+                        {algorithmType === "linkedlist" && <LinkedList list={list} setList={setList} />}
+                        {algorithmType === "array" && <Array list={list} setList={setList} />}
+                        {(algorithmType === "sorting" || algorithmType === "searching") && (
+                            raceMode ? (
                             <div className={`flex md:mt-10 lg:mt-5 md:flex-row ${algorithm.length == 2 ? "flex-row" : "flex-col"} text-white gap-1 m-1 md:gap-2`}>
                                 {algorithm.map((algo) => (
                                     <div key={algo} className="border p-2 rounded-2xl border-gray-300">
@@ -150,7 +172,8 @@ function Visualizer({ algorithm, setAlgorithm}) {
                             </div>
                         ) : (
                             <RenderBars arr={arr} steps={steps} currentStep={currentStep} raceMode={raceMode} algorithm={algorithm} searchTarget={searchTarget} algorithmType={algorithmType}/>
-                        )}
+                        )
+                            )}
                     </div>
                 </div>
             </div>
