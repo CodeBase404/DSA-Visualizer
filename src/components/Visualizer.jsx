@@ -14,7 +14,7 @@ function Visualizer({ algorithm, setAlgorithm}) {
     const [showSidebar, setShowSidebar] = useState(false)
     const [arr, setArr] = useState([76, 89, 35, 57, 79, 97, 75, 53, 31, 47, 70, 52]);
     const [input, setInput] = useState("");
-    const [speed, setSpeed] = useState(200);
+    const [speed, setSpeed] = useState(200); 
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentStep, setCurrentStep] = useState(0);
     const [steps, setSteps] = useState([]);
