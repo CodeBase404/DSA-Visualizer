@@ -9,6 +9,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
     const [greedyDropdown, setGreedyDropdown] = useState(false);
     const [backtrackingDropdown, setBacktrackingDropdown] = useState(false);
     const [treeDropdown, setTreeDropdown] = useState(false);
+    const [dataStructureDropdown, setDataStructureDropdown] = useState(false);
 
 
     const sortingAlgoList = [
@@ -54,8 +55,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
     ];
 
     const supportedAlgorithms = [
-        "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort","Linear Search","Binary Search"
-    ];
+        "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort","Linear Search","Binary Search","Array","Stack","Linkedlist"];
 
     const handleAlgorithmSelection = (algokey) => {
         if (!supportedAlgorithms.includes(algokey)) {
@@ -78,7 +78,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
     };
 
     return (
-        <div className="flex flex-col gap-2 text-[8px] mb-20 font-bold sm:text-[14px] text-center md:text-[14px]">
+        <div className="flex flex-col ml-4 gap-2 text-[8px] mb-20 font-bold sm:text-[14px] text-center md:text-[14px]">
             <h1 className='text-sm md:text-3xl md:py-4 md:px-2 lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>Select Algorithms</h1>
               
             <button className={`p-2 block lg:hidden rounded-md cursor-pointer transition ${raceMode ? "text-white bg-gradient-to-tl from-rose-700 to-rose-950 hover:text-rose-300" : "text-white bg-gradient-to-tl from-green-700 to-green-950 hover:text-green-400"}`} onClick={() => setRaceMode(!raceMode)}>
@@ -134,6 +134,22 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
                         </motion.li>
                     ))}
             </motion.ul>
+
+            <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer"
+                onClick={() => { setDataStructureDropdown(!dataStructureDropdown); setSortDropdown(false); setSearchDropdown(false); }}>
+                Data Structures
+            </button>
+            <motion.div initial={false} animate={{ height: dataStructureDropdown ? "auto" : "0px", opacity: dataStructureDropdown ? 1 : 0 }} transition={{ duration: 0.5 }} className="flex flex-col gap-5 rounded-md overflow-hidden">
+            <button className="p-1 rounded-md text-gray-700 hover:bg-gray-900 hover:text-white cursor-pointer transition" initial={{ opacity: 0, y: -10 }} animate={{ opacity: dataStructureDropdown ? 1 : 0, y: dataStructureDropdown ? 0 : -10 }} onClick={() => { setAlgorithmType("stack");  setAlgorithm([]); setRaceMode(false);handleAlgorithmSelection("Stack") }}>
+                Stack
+            </button>
+            <button  className="p-1 rounded-md text-gray-700 hover:bg-gray-900 hover:text-white cursor-pointer transition" initial={{ opacity: 0, y: -10 }} animate={{ opacity: dataStructureDropdown ? 1 : 0, y: dataStructureDropdown ? 0 : -10 }} onClick={() => { setAlgorithmType("linkedlist"); setAlgorithm([]); setRaceMode(false); }}>
+                Linked List
+            </button>
+            <button className="p-1 rounded-md text-gray-700 hover:bg-gray-900 hover:text-white cursor-pointer transition" initial={{ opacity: 0, y: -10 }} animate={{ opacity: dataStructureDropdown ? 1 : 0, y: dataStructureDropdown ? 0 : -10 }} onClick={() => { setAlgorithmType("array"); setAlgorithm([]); setRaceMode(false); }}>
+                Array
+            </button>
+            </motion.div>
 
             <button className="border p-2 w-[100%] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow shadow-pink-900 rounded-md cursor-pointer" onClick={() =>{ setGraphDropdown(!graphDropdown);}}>
             Graph Algorithms <strong className="text-[10px]">(coming soon)</strong>
