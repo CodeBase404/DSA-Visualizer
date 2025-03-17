@@ -15,7 +15,7 @@ function Controller({ input, setInput, speed, setSpeed, isPlaying, setIsPlaying,
       alert('Please enter the array in input field first!');
       return;
     }
-    setCurrentStep(0);
+    setCurrentStep(0); 
     setRaceCurrentSteps({});
     setIsPlaying(false);
     handleInput();
