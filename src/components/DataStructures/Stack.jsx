@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "motion/react"
 function Stack({ stack }) {
     return (
         <div className='flex flex-col items-center p-2 h-full rounded-xl'>
-             <div className="bg-clip-text text-transparent p-1 rounded-xl  bg-gradient-to-r text-2xl from-purple-400 via-green-500 to-white font-bold mb-15">The length of Stack : {stack.length}</div>
-            <div className='flex flex-col-reverse pt-10 gap-3 lg:w-[50%] md:w-[60%] w-[80%] h-[48vh] md:h-[60vh] overflow-auto p-4 shadow-md shadow-pink-800 rounded-lg'>
+             <div className="bg-clip-text text-transparent p-1 rounded-xl  bg-gradient-to-r text-2xl from-purple-400 via-green-500 to-white font-bold mb-4 md:mb-15">The length of Stack : {stack.length}</div>
+            <div className='flex flex-col-reverse pt-10 gap-3 lg:w-[50%] md:w-[60%] w-[80%] h-[44vh] md:h-[60vh] overflow-auto p-4 shadow-md shadow-pink-800 rounded-lg'>
                 <AnimatePresence mode="popLayout">
                     {stack.length === 0 ? (
                         <motion.p
