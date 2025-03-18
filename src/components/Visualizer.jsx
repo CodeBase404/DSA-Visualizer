@@ -99,12 +99,21 @@ function Visualizer({ algorithm, setAlgorithm}) {
                     width: showSidebar ? "28.5%" : "0px", opacity: showSidebar ? 1 : 0
                 }}
                 transition={{ duration: 0.5 }}
-                className="absolute top-9 text-[12px] md:top-0 left-0 z-15 h-full rounded-2xl [&::-webkit-scrollbar]:hidden border-l-2 border-r-2 border-pink-500 home bg-gray-950 overflow-auto p-4"
+                className="md:hidden block absolute top-9 text-[12px] md:top-0 left-0 z-15 h-full rounded-2xl [&::-webkit-scrollbar]:hidden border-l-2 border-r-2 border-pink-500 home bg-gray-950 overflow-auto p-4"
             >
                 <Sidebar algorithm={algorithm} algorithmType={algorithmType} setAlgorithmType={setAlgorithmType} setAlgorithm={setAlgorithm} raceMode={raceMode} setRaceMode={setRaceMode} />
             </motion.div>
 
             <div className="flex flex-col-reverse md:flex-row h-full md:h-[84vh]  md:mt-1 md:mb-3 lg:mt-4 gap-2">
+               <motion.div
+                initial={true}
+                animate={{
+                    width: showSidebar ? "0px":"28.5%", opacity: showSidebar ? 0 : 1
+                }}
+                className="md:block hidden text-[12px] h-full rounded-2xl [&::-webkit-scrollbar]:hidden border-l-2 border-r-2 border-pink-500 home bg-gray-950 overflow-auto p-3"
+            >
+                <Sidebar algorithm={algorithm} algorithmType={algorithmType} setAlgorithmType={setAlgorithmType} setAlgorithm={setAlgorithm} raceMode={raceMode} setRaceMode={setRaceMode} />
+                </motion.div>
                 <div className="border-r-2 mb-14 md:mb-0 rounded-2xl shadow-[0px_0px_10px_inset] md:shadow-[0px_0px_20px_inset] shadow-pink-700 md:w-[40%]">
                     <Controller
                         input={input}
