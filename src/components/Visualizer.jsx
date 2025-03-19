@@ -157,7 +157,7 @@ function Visualizer({ algorithm, setAlgorithm}) {
                 <div className="w-full shadow-[0px_0px_10px_inset] md:shadow-[0px_0px_20px_inset] shadow-pink-700  md:h-full border-t-2 border-b-2  border-pink-900 rounded-2xl">
                     <div className="flex p-2 items-center justify-between">
                         <button className="cursor-pointer font-semibold text-center inline-flex text-[12px] text-white" onClick={() => setShowSidebar(!showSidebar)}>
-                            <PanelLeft /> &nbsp; Select algorithms
+                            <PanelLeft className="p-1 size-8 rounded-md bg-gray-200 text-black"/><span className="pt-1 pl-1 text-sm">&nbsp;Select algorithms</span>
                         </button>
                         <h2 className="text-[10px] lg:text-[15px] font-bold text-blue-500 shadow rounded-md p-1  shadow-[#a63deac8]">
                             Selected Algorithm : {algorithm.length > 0 ? <strong className="text-[#a3ff12]"> {algorithm.join(", ")}</strong> : <strong className="text-red-600">None</strong>}
