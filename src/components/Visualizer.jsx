@@ -149,7 +149,6 @@ function Visualizer({ algorithm, setAlgorithm}) {
                         list={list}
                         setList={setList}
                     />
-                    />
                     {!raceMode && algorithm.length > 0 && (
                         <Pseudocode algorithm={algorithm[0]} />
                     )}
