@@ -234,7 +234,7 @@ A stack is a linear data structure following the Last In, First Out (LIFO) princ
 
 function PseudocodeCard({ algorithm, data }) {
     return (
-        <div className="shadow-md pt-2 shadow-green-400 font-semibold text-sm pl-4 m-auto h-full  rounded-lg mb-2  text-white">
+        <div className="shadow-md p-4 pt-2 shadow-green-400 font-semibold text-sm pl-4 m-auto h-full  rounded-lg mb-2  text-white">
             <h3 className="text-2xl font-bold text-green-400 flex items-center">
                 <Code className='inline-block mr-2 text-purple-500' /> {algorithm}
             </h3>
