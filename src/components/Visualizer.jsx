@@ -115,7 +115,7 @@ function Visualizer({ algorithm, setAlgorithm}) {
             >
                 <Sidebar algorithm={algorithm} algorithmType={algorithmType} setAlgorithmType={setAlgorithmType} setAlgorithm={setAlgorithm} raceMode={raceMode} setRaceMode={setRaceMode} />
                 </motion.div>
-                <div className="border-r-2 mb-14 md:mb-0 rounded-2xl shadow-[0px_0px_10px_inset] md:shadow-[0px_0px_20px_inset] shadow-pink-700 md:w-[40%]">
+                <div className="border-r-2 mb-2 md:mb-0 rounded-2xl shadow-[0px_0px_10px_inset] md:shadow-[0px_0px_20px_inset] shadow-pink-700 md:w-[40%]">
                     <Controller
                         input={input}
                         setInput={setInput}
@@ -185,12 +185,17 @@ function Visualizer({ algorithm, setAlgorithm}) {
                             )}
                     </div>
                 </div>
-                <div className="md:block hidden h-[100%] rounded-2xl">
+                <div className={`lg:block hidden ${raceMode?"md:hidden":""} md:max-w-40 lg:max-w-60 h-[99%] rounded-2xl`}>
                     {!raceMode && algorithm.length > 0 && (
                         <Pseudocodecopy algorithm={algorithm[0]} />
                     )}
                 </div>
             </div>
+             <div className={`md:block lg:hidden ${raceMode?"md:hidden":""} md:w-full lg:max-w-80 h-[99%] rounded-2xl`}>
+                    {!raceMode && algorithm.length > 0 && (
+                        <Pseudocodecopy algorithm={algorithm[0]} />
+                    )}
+                </div>
         </div>
     );
 }
