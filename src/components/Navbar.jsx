@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect,useRef } from "react";
 import algoIcon from "../assets/icon.png";
 import { NavLink, useNavigate } from 'react-router'
 import { House, Activity, Search, LogIn } from 'lucide-react';
@@ -8,6 +8,8 @@ import { motion,useMotionTemplate,useMotionValue,animate, easeInOut } from "moti
 function Navbar({ algorithm, setAlgorithm }) {
   const [showSearch, setShowSearch] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
+  const searchRef = useRef(null);
+  const labelRef = useRef(null);
   const Colors = ["#DD335C", "#ff5e57", "#e073c5", "#1E67C6", "#CE84CF"];
   const color = useMotionValue(Colors[0]);
   const navigate = useNavigate();
@@ -19,6 +21,23 @@ function Navbar({ algorithm, setAlgorithm }) {
       repeat: Infinity,
       repeatType: "mirror",
     })
+
+        const handleClickOutside = (event) => {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target) &&
+        labelRef.current &&
+        !labelRef.current.contains(event.target)
+      ) {
+        setShowSearch(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+    
   }, [])
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%,#020617 50%, ${color})`;
@@ -58,13 +77,14 @@ function Navbar({ algorithm, setAlgorithm }) {
             <img src={algoIcon} className="w-10 h-10" alt="Algorithm Visualizer" />
             <div className="flex gap-10 rounded-md text-[15px]">
               <NavLink className="flex items-center hover:text-blue-600 " to="/"><House />&nbsp;<span>Home</span></NavLink>
-              <label htmlFor="search1" className="flex items-center cursor-pointer hover:text-blue-600" onClick={() => setShowSearch(!showSearch)}><Search />&nbsp;<span>Search</span></label>
+              <label ref={labelRef} htmlFor="search1" className="flex items-center cursor-pointer hover:text-blue-600" onClick={() => setShowSearch(!showSearch)}><Search />&nbsp;<span>Search</span></label>
               <NavLink className="flex items-center hover:text-blue-600 " to="/Visualizer"><Activity />&nbsp;<span>Visualizer</span></NavLink>
             </div>
 
             <NavLink className="rounded-md p-1 border text-[15px] flex items-center text-blue-500 hover:text-blue-400" to="/Login"><span>Login</span>&nbsp;<LogIn /></NavLink>
 
             <motion.div
+              ref={searchRef}
               initial={false}
               animate={{ y: showSearch ? 135 : -500 }}
               transition={{ duration: 0.7, ease: 'anticipate' }}
@@ -123,7 +143,7 @@ function Navbar({ algorithm, setAlgorithm }) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyPress}
-                className="w-[100%] m-auto shadow-[0px_0px_5px]  shadow-green-700 pl-4 font-semibold rounded-md h-12 text-white backdrop-blur-xl outline-none"
+                className="w-[100%] m-auto shadow-[0px_0px_5px]  shadow-green-700 p-4 font-semibold rounded-md h-12 bg-white text-gray-600 outline-none"
                  id="search"
                  />
               {searchQuery && filterAlgorithms.length > 0 && (
