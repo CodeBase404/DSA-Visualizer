@@ -169,7 +169,7 @@ function Visualizer({ algorithm, setAlgorithm}) {
                         {algorithmType === "array" && <Array list={list} setList={setList} />}
                         {(algorithmType === "sorting" || algorithmType === "searching") && (
                             raceMode ? (
-                            <div className={`flex md:mt-10 lg:mt-5 md:flex-row ${algorithm.length == 2 ? "flex-row" : "flex-col"} text-white gap-1 m-1 md:gap-2`}>
+                            <div className={`flex lg:mt-5 md:flex-row ${algorithm.length == 2 ? "flex-row" : "flex-col"} text-white gap-1 m-1 md:gap-2`}>
                                 {algorithm.map((algo) => (
                                     <div key={algo} className="border p-2 rounded-2xl border-gray-300">
                                         <h3 className={`text-sm md:text-md lg:text-xl md:text-center`}>
