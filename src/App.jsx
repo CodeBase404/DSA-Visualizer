@@ -14,7 +14,7 @@ const [algorithm, setAlgorithm] = useState([]);
       <div  className='home absolute z-0 inset-0'></div>
       <Navbar algorithm={algorithm} setAlgorithm={setAlgorithm} />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home setAlgorithm={setAlgorithm}/>} />
         <Route path='/Visualizer' element={<Visualizer algorithm={algorithm} setAlgorithm={setAlgorithm} />} />
         <Route path='/Login' element={<Loginform />} />
       </Routes>
