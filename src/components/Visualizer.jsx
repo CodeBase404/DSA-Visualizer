@@ -93,7 +93,7 @@ function Visualizer({ algorithm, setAlgorithm}) {
     }, [isPlaying, currentStep, steps, raceMode, raceSteps, algorithm, speed]);
 
     return (
-        <div className="relative md:max-w-[95vw] container m-auto lg:container lg:m-auto">
+        <div className="relative md:max-w-[95vw] container m-auto">
             <motion.div
                 initial={false}
                 animate={{
