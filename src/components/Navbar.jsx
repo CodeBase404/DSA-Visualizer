@@ -88,7 +88,7 @@ function Navbar({ algorithm, setAlgorithm }) {
               initial={false}
               animate={{ y: showSearch ? 135 : -500 }}
               transition={{ duration: 0.7, ease: 'anticipate' }}
-              className={`fixed z-10  ${showSearch ? "block" : ""} rounded-md w-[30%] shadow-[0px_0px_5px] shadow-green-700 mx-4 `}
+              className={`absolute z-10  ${showSearch ? "block" : ""} rounded-md w-[30%] shadow-[0px_0px_5px] shadow-green-700 mx-4 `}
             >
               <motion.input
                 type="search"
