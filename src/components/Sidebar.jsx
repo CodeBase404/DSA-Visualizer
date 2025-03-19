@@ -79,7 +79,7 @@ function Sidebar({ algorithm, setAlgorithm, raceMode, setRaceMode,setAlgorithmTy
 
     return (
         <div className="flex flex-col gap-2 text-[8px] mb-20 font-bold sm:text-[14px] text-center md:text-[14px]">
-            <h1 className='text-sm md:text-3xl md:py-4 md:px-2 lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>Select Algorithms</h1>
+            <h1 className='text-sm md:text-[18px] md:py-4 md:px-2 lg:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500'>Select Algorithms</h1>
               
             <button className={`p-2 rounded-md cursor-pointer transition ${raceMode ? "text-white bg-gradient-to-tl from-rose-700 to-rose-950 hover:text-rose-300" : "text-white bg-gradient-to-tl from-green-700 to-green-950 hover:text-green-400"}`} onClick={() => setRaceMode(!raceMode)}>
                 {raceMode ? "Disable Race Mode" : "Enable Race Mode"}
