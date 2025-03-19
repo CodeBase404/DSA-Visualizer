@@ -163,7 +163,7 @@ function Visualizer({ algorithm, setAlgorithm}) {
                             Selected Algorithm : {algorithm.length > 0 ? <strong className="text-[#a3ff12]"> {algorithm.join(", ")}</strong> : <strong className="text-red-600">None</strong>}
                         </h2>
                     </div>
-                    <div className={`${algorithm.length == 1 ? "mt-20" : ""}`}>
+                    <div>
                         {algorithmType === "stack" && <Stack stack={stack} setStack={setStack} />}
                         {algorithmType === "linkedlist" && <LinkedList list={list} setList={setList} />}
                         {algorithmType === "array" && <Array list={list} setList={setList} />}
