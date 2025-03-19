@@ -156,10 +156,10 @@ function Visualizer({ algorithm, setAlgorithm}) {
                 </div>
                 <div className="w-full shadow-[0px_0px_10px_inset] md:shadow-[0px_0px_20px_inset] shadow-pink-700  md:h-full border-t-2 border-b-2  border-pink-900 rounded-2xl">
                     <div className="flex p-2 items-center justify-between">
-                        <button className="cursor-pointer font-semibold text-center inline-flex text-sm text-white" onClick={() => setShowSidebar(!showSidebar)}>
+                        <button className="cursor-pointer font-semibold text-center inline-flex text-[12px] text-white" onClick={() => setShowSidebar(!showSidebar)}>
                             <PanelLeft /> &nbsp; Select algorithms
                         </button>
-                        <h2 className="text-[9px] sm:text-[15px] font-bold text-blue-500 shadow rounded-md p-1  shadow-[#a63deac8]">
+                        <h2 className="text-[10px] lg:text-[15px] font-bold text-blue-500 shadow rounded-md p-1  shadow-[#a63deac8]">
                             Selected Algorithm : {algorithm.length > 0 ? <strong className="text-[#a3ff12]"> {algorithm.join(", ")}</strong> : <strong className="text-red-600">None</strong>}
                         </h2>
                     </div>
@@ -169,7 +169,7 @@ function Visualizer({ algorithm, setAlgorithm}) {
                         {algorithmType === "array" && <Array list={list} setList={setList} />}
                         {(algorithmType === "sorting" || algorithmType === "searching") && (
                             raceMode ? (
-                            <div className={`flex lg:mt-5 md:flex-row ${algorithm.length == 2 ? "flex-row" : "flex-col"} text-white gap-1 m-1 md:gap-2`}>
+                            <div className={`flex lg:mt-5 lg:flex-row ${algorithm.length == 2 ? "flex-row" : "flex-col"} text-white gap-1 m-1 md:gap-2`}>
                                 {algorithm.map((algo) => (
                                     <div key={algo} className="border p-2 rounded-2xl border-gray-300">
                                         <h3 className={`text-sm md:text-md lg:text-xl md:text-center`}>
