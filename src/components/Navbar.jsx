@@ -72,8 +72,8 @@ function Navbar({ algorithm, setAlgorithm }) {
 
       <nav className="pb-2 relative z-50 " >
         {/* desktop view */}
-        <div className="hidden md:block w-full ">
-          <motion.div className="container m-auto w-[40rem] flex justify-around items-center font-bold rounded-xl gap-2 py-4 text-white text-lg   " style={{ backgroundImage, boxShadow }}>
+        <div className="hidden lg:block w-full ">
+          <motion.div className="container m-auto w-[40rem] flex justify-around items-center font-bold rounded-xl gap-2 py-4 text-white text-lg  " style={{ backgroundImage, boxShadow }}>
             <img src={algoIcon} className="w-10 h-10" alt="Algorithm Visualizer" />
             <div className="flex gap-10 rounded-md text-[15px]">
               <NavLink className="flex items-center hover:text-blue-600 " to="/"><House />&nbsp;<span>Home</span></NavLink>
@@ -122,7 +122,7 @@ function Navbar({ algorithm, setAlgorithm }) {
         </div>
 
 
-        <div className="w-[100%] h-14 fixed z-10 text-black  bottom-0 md:hidden">
+        <div className="w-[100%] h-14 fixed z-10 text-black  bottom-0 lg:hidden">
 
           <motion.div className="flex justify-around items-center shadow-[0px_-80px_20px_-35px_inset] shadow-gray-950 text-gray-400  gap-10 h-15">
             <NavLink className="font-bold flex flex-col gap-1 items-center hover:text-blue-600 " to="/"><House /> <span className="text-[12px]">Home</span></NavLink>
