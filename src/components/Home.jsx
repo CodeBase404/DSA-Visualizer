@@ -14,7 +14,7 @@ import { easeInOut, stagger } from 'motion'
 import { NavLink } from 'react-router'
 
 
-function Home() {
+function Home({setAlgorithm}) {
   const [position, setPosition] = useState({ x: "0px", y: "0px" });
   const Colors = ["#DD335C", "#ff5e57", "#e073c5", "#1E67C6", "#CE84CF"];
   const color = useMotionValue(Colors[0]);
@@ -189,7 +189,7 @@ function Home() {
                 Explore the fascinating world of sorting algorithms, from the simple Bubble Sort to the efficient Quick Sort. Understand how different algorithms perform under various conditions and data sets.
               </motion.p>
 
-              <div className='relative overflow-hidden rounded-xl mb-6 group'>
+              <NavLink to="/Visualizer" onClick={()=>setAlgorithm(["Insertion Sort"])} className='relative overflow-hidden rounded-xl mb-6 group'>
                 <div className='absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-[1rem]'></div>
 
                 <img src={sorting} alt="Sorting Algorithms Visualization" className='w-full h-50 object-cover group-hover:scale-105 transition-transform duration-500' />
@@ -197,7 +197,7 @@ function Home() {
                   <span className='text-white font-medium'>visualize sorting in real-time</span>
                 </div>
 
-              </div>
+              </NavLink>
 
               <div className='space-y-3 mt-auto'>
                 <div className='flex items-center gap-3 bg-blue-900/20 p-3 rounded-lg'>
@@ -226,10 +226,10 @@ function Home() {
                 </div>
 
               </div>
-              <button className='mt-6 group flex items-center text-blue-400 font-medium'>
-                <span>Explore sorting algorithms</span>
+              <NavLink  to="/visualizer" onClick={()=>setAlgorithm(["Selection Sort"])} className='mt-6 group flex items-center text-blue-400 font-medium'>
+                <span>Try sorting algorithms</span>
                 <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />
-              </button>
+              </NavLink>
             </motion.div>
           </motion.div>
         </Tilt>
@@ -308,7 +308,7 @@ function Home() {
               </div>
 
               <button className='mt-6 group flex items-center text-green-400 font-medium'>
-                <span>Discover graph algorithms</span>
+                <span>Discover graph algorithms <strong className='text-red-500'>(coming soon)</strong></span>
                 <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />
               </button>
             </motion.div>
@@ -354,7 +354,7 @@ function Home() {
               <p className='text-gray-300 mb-6'>
                 Understand the building blocks of efficient algorithms through interactive visualizations of fundamental data structures.
               </p>
-              <div className='relative rounded-2xl overflow-hidden mb-6 group'>
+              <NavLink to="/visualizer" className='relative rounded-2xl overflow-hidden mb-6 group'>
                 <div className='absolute inset-0 bg-gradient-to-r from-pink-600/20 to-blue-600/20 overflow-hidden'></div>
 
                 <img src={algorithm} alt="Data Structures Visualization" className='w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500' />
@@ -362,7 +362,7 @@ function Home() {
                 <div className='absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/100 to-transparent'>
                   <span className='text-white font-medium'>Explore Data organization</span>
                 </div>
-              </div>
+              </NavLink>
 
               <div className='space-y-2 mt-auto'>
                 <div className='p-2 rounded-lg bg-red-900/20'>
@@ -379,10 +379,10 @@ function Home() {
                 </div>
               </div>
 
-              <button className='mt-6 group flex items-center text-orange-400 font-medium '>
-                <span>Learn Data Structures</span>
+              <NavLink to="/visualizer"  className='mt-6 group flex items-center text-orange-400 font-medium '>
+                <span>Try Data Structures</span>
                 <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />
-              </button>
+              </NavLink>
             </motion.div>
           </motion.div>
         </Tilt>
@@ -449,7 +449,7 @@ function Home() {
               </div>
 
               <button className='mt-6 group flex items-center text-purple-400 font-medium '>
-                <span>Master dynamic programming</span>
+                <span>Dynamic programming <strong className='text-red-500'>(coming soon)</strong></span>
                 <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />
               </button>
             </motion.div>
@@ -517,7 +517,7 @@ function Home() {
               </div>
 
               <button className='mt-6 group flex items-center text-orange-400 font-medium '>
-                <span>Explore complexity analysis</span>
+                <span>Explore complexity analysis <strong className='text-red-500'>(coming soon)</strong></span>
                 <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />
               </button>
             </motion.div>
