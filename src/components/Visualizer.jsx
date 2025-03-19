@@ -163,13 +163,13 @@ function Visualizer({ algorithm, setAlgorithm}) {
                             Selected Algorithm : {algorithm.length > 0 ? <strong className="text-[#a3ff12]"> {algorithm.join(", ")}</strong> : <strong className="text-red-600">None</strong>}
                         </h2>
                     </div>
-                    <div>
+                    <div className={`${algorithm.length == 1 ? "mt-20" : ""}`}>
                         {algorithmType === "stack" && <Stack stack={stack} setStack={setStack} />}
                         {algorithmType === "linkedlist" && <LinkedList list={list} setList={setList} />}
                         {algorithmType === "array" && <Array list={list} setList={setList} />}
                         {(algorithmType === "sorting" || algorithmType === "searching") && (
                             raceMode ? (
-                            <div className={`flex lg:mt-5 lg:flex-row ${algorithm.length == 2 ? "flex-row" : "flex-col"} text-white gap-1 m-1 md:gap-2`}>
+                            <div className={`flex lg:mt-5 lg:flex-row ${algorithm.length == 2 ? "flex-row  mt-20" : "flex-col"} text-white gap-1 m-1 md:gap-2`}>
                                 {algorithm.map((algo) => (
                                     <div key={algo} className="border p-2 rounded-2xl border-gray-300">
                                         <h3 className={`text-sm md:text-md lg:text-xl md:text-center`}>
