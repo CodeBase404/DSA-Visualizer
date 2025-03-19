@@ -70,7 +70,7 @@ function RenderBars({ arr, steps, currentStep,raceMode,algorithm,algorithmType, 
                 </motion.div>
             )}
       
-      <svg className={`p-2 w-full ${algorithm.length==2?"flex-row h-[20vh]":"flex-col"} ${raceMode && algorithm.length==3?"h-[15vh]  lg:h-[60vh] ":"h-[33vh] lg:h-[60vh]"} `}
+      <svg className={`p-2 w-full ${algorithm.length==2?"flex-row h-[20vh]":"flex-col"} ${raceMode && algorithm.length==3?"h-[15vh]  lg:h-[60vh] ":"h-[26vh] lg:h-[60vh]"} `}
         viewBox={`0 0 ${(arr.length * (viewMode === "bars" ? barSpacing : (boxSize + gap)))} ${baseHeight + 50}`}
       >
         {
