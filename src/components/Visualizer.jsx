@@ -6,6 +6,7 @@ import { PanelLeft } from "lucide-react";
 import RenderBars from './RenderBars';
 import handleAlgorithm from "./handleAlgorithm";
 import Pseudocode from "./Pseudocode";
+import Pseudocodecopy from "./AlgoContent";
 import Stack from './DataStructures/Stack'
 import  Array from './DataStructures/Array'
 import  LinkedList from './DataStructures/LinkedList' 
@@ -183,6 +184,11 @@ function Visualizer({ algorithm, setAlgorithm}) {
                         )
                             )}
                     </div>
+                </div>
+                <div className="md:block hidden h-[100%] rounded-2xl">
+                    {!raceMode && algorithm.length > 0 && (
+                        <Pseudocodecopy algorithm={algorithm[0]} />
+                    )}
                 </div>
             </div>
         </div>
